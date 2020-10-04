@@ -2,3 +2,12 @@
 venv
 .vscode
 
+db.sqlite3
+
+KnnService/__pycache__
+Service/__pychache__
+MachineLearning/__pycache__
+Service/__pycache__
+__pycache__
+
+

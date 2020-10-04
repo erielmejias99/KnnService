@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KnnService</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .btn{
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: darkblue; margin-bottom: 20px; padding: 10px">
+        <p style="text-align: center; color: white; margin: 0; padding: 0; font-size: 30px">Knn Service</p>
+
+    </header>
+
+
+    <div style="max-width: 800px; margin: auto auto">
+        <div>
+            This a micro service for KNN Machine Learning Algorithm
+        </div>
+
+        <p style="font-weight: bold">
+            Developed by: Google ft Facebook, Microsoft
+        </p>
+
+        <p>Example of data: </p>
+<textarea id = "data" style="width: 100%; height: 200px">
+{
+    "data":{
+        "matrix":[
+                  [ 1, 1, "A" ],
+                  [ 5, 5, "B" ],
+                  [ 1, 0, "A" ],
+                  [ 0, 1, "A" ]
+                 ],
+        "object": [ 1, 2 ],
+        "k": 3
+    }
+}
+</textarea>
+
+        <p>Example Response: </p>
+        <div style="border-radius: 5px; padding: 10px; border: 1px solid #bbbbbb">
+<pre>
+{
+    "classification": "A"
+}
+</pre>
+        </div>
+
+        <div style="margin-top: 50px">
+            <b>
+                Run this in your CMD for test:
+            </b>
+
+            <script>
+                function load_data_to_cmd( ){
+                    console.log( "CLICKED");
+                    var text_area = document.getElementById( 'data' );
+                    console.log( text_area.value );
+                    var cosole_cmd = document.getElementById( 'console_command');
+
+                    cosole_cmd.innerHTML = 'curl -X \"POST\" -d \''+text_area.value + '\'' + " http://localhost:8000/service/"
+                }
+            </script>
+
+            <div style="text-align: right; margin-top: -35px;">
+                <div style="display: inline-block;cursor: pointer" onclick="load_data_to_cmd();" class="btn">Get Konsole command</div>
+            </div>
+            <div id="console_command" style="margin-top: 10px; padding: 10px; border-radius: 1px; border: 1px solid #ddd">
+                curl -X "POST" -d  '
+                    {
+                        "data":{
+                            "matrix": [
+                                       [ 1, 1, "A" ],
+                                       [ 5, 5, "B" ]
+                                      ],
+                            "object":[1,1],
+                            "k": 2
+                        }
+                    }'
+
+                http://localhost:8000/service/
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="background-color: darkblue; padding: 10px; margin-top: 50px">
+        <p style="color: white; text-align: center">
+            2020 KnnService<br>
+            All right reserved. :))))
+        </p>
+    </footer>
+</body>
+</html>
