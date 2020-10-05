@@ -35,9 +35,9 @@ def predecir(k, X, Y):
                 count[X[t][-1]] += 1
             else:
                 count[X[t][-1]] = 1
-        print("Count: ", count)
+        #print("Count: ", count)
         final_sort = sorted(count.items(), key = operator.itemgetter(1), reverse=True)
-        print("Final sort: ", final_sort)
+        #print("Final sort: ", final_sort)
         predicciones.append(final_sort[0][0])
     return predicciones
 
